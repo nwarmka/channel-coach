@@ -69,16 +69,40 @@ with col2:
     if st.button("⚡ Shorts Ideas", use_container_width=True):
         user_input = "Give me 5 short-form video ideas."
 
-if st.button("🔎 SEO Captions + Hashtags", use_container_width=True):
+if st.button("🔥 Viral Captions + SEO Hashtags", use_container_width=True):
     user_input = (
-        f"Write SEO-rich captions and hashtags for a "
-        f"{st.session_state.get('saved_niche', niche)} video on "
-        f"{st.session_state.get('saved_platform', platform)}. "
-        f"Use a {st.session_state.get('saved_tone', tone)} tone. "
-        "Include 3 caption options, keyword-rich wording, and 12 relevant hashtags."
-    )
-st.divider()
+        f"You are an expert short-form content strategist for creators.\n\n"
+        f"Create high-performing video text captions for a "
+        f"{st.session_state.get('saved_niche', niche)} creator posting on "
+        f"{st.session_state.get('saved_platform', platform)}.\n"
+        f"Tone: {st.session_state.get('saved_tone', tone)}.\n\n"
 
+        "Make the captions better than generic AI captions.\n"
+        "They should feel natural, scroll-stopping, and creator-ready.\n\n"
+
+        "Output this exact format:\n\n"
+
+        "1. VIRAL HOOK CAPTIONS\n"
+        "- Give 5 short on-screen caption options\n"
+        "- Use TikTok/Reels/Shorts style wording\n"
+        "- Make them emotional, curious, funny, dramatic, or relatable\n\n"
+
+        "2. CAPCUT-READY TEXT\n"
+        "- Break the best caption into short lines\n"
+        "- Each line should be easy to place on screen\n"
+        "- Keep each line under 8 words\n\n"
+
+        "3. SEO CAPTION FOR POST\n"
+        "- Write one keyword-rich caption for the video description\n"
+        "- Make it sound natural, not robotic\n\n"
+
+        "4. HASHTAGS\n"
+        "- Give 15 hashtags\n"
+        "- Mix broad, niche, and searchable hashtags\n\n"
+
+        "5. BEST OPTION\n"
+        "- Tell me which hook is strongest and why"
+    )
 # Chat history
 if "messages" not in st.session_state:
     st.session_state.messages = []
