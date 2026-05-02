@@ -4,7 +4,8 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+api_key = st.secrets.get("OPENAI_API_KEY", os.getenv("OPENAI_API_KEY"))
+client = OpenAI(api_key=api_key)
 
 st.set_page_config(
     page_title="Channel Coach",
@@ -68,6 +69,14 @@ with col2:
     if st.button("⚡ Shorts Ideas", use_container_width=True):
         user_input = "Give me 5 short-form video ideas."
 
+if st.button("🔎 SEO Captions + Hashtags", use_container_width=True):
+    user_input = (
+        f"Write SEO-rich captions and hashtags for a "
+        f"{st.session_state.get('saved_niche', niche)} video on "
+        f"{st.session_state.get('saved_platform', platform)}. "
+        f"Use a {st.session_state.get('saved_tone', tone)} tone. "
+        "Include 3 caption options, keyword-rich wording, and 12 relevant hashtags."
+    )
 st.divider()
 
 # Chat history
